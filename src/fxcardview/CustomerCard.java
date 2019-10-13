@@ -1,10 +1,17 @@
 package fxcardview;
 
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.text.*;
 import javafx.scene.shape.*;
-import java.lang.*;
 import javafx.scene.control.*;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 public class CustomerCard extends Pane {
 
@@ -16,7 +23,8 @@ public class CustomerCard extends Pane {
     protected final Label visites;
     protected final Label label0;
     private int ID;
-    public CustomerCard(int Id,String Name,String Mobile,String Date,String Vistes) {
+
+    public CustomerCard(int Id, String Name, String Mobile, String Date, String Vistes) {
 
         photo = new Circle();
         name = new Label();
@@ -26,10 +34,16 @@ public class CustomerCard extends Pane {
         visites = new Label();
         label0 = new Label();
 
-        setId(Id+"");
+        setId(Id + "");
         setPrefHeight(233.0);
         setPrefWidth(245.0);
         setStyle("-fx-background-color:#FFF; -fx-border-radius: 10px; -fx-background-radius: 10px;");
+
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setHeight(18);
+        dropShadow.setWidth(18);
+        dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
+        setEffect(dropShadow);
 
         photo.setFill(javafx.scene.paint.Color.valueOf("#1f93ff00"));
         photo.setLayoutX(123.0);
@@ -90,6 +104,21 @@ public class CustomerCard extends Pane {
         label0.setText("Visites :");
         label0.setFont(new Font(13.0));
 
+        setOnMouseClicked(e -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("FXMLDocument.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                Stage stage = new Stage();
+                stage.setTitle("New Window");
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException em) {
+                
+            }
+        });
+
+        getStylesheets().add("/fxcardview/CardDesign.css");
         getChildren().add(photo);
         getChildren().add(name);
         getChildren().add(mobile);

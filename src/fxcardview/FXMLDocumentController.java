@@ -9,13 +9,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -53,8 +50,10 @@ public class FXMLDocumentController implements Initializable {
         list.add(new CustomerCard(15, "Pawan Ghewande", "9665144730", "10/02/2019", "3"));
         list.add(new CustomerCard(16, "Pawan Ghewande", "9665144730", "10/02/2019", "3"));
         cardHolder.setAlignment(Pos.CENTER);
-        cardHolder.setVgap(10.00);
-        cardHolder.setHgap(10.00);
+        cardHolder.setVgap(20.00);
+        cardHolder.setHgap(20.00);
+        cardHolder.setStyle("-fx-padding:10px;");
+        
     }
 
     @FXML
@@ -64,7 +63,7 @@ public class FXMLDocumentController implements Initializable {
             for (int j = 0; j < 4; j++) {
                 cardHolder.add(list.get(count), j, i);
                 count++;
-                System.out.println(i + " " + j);
+                //System.out.println(i + " " + j);
             }
         }
 
