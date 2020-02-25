@@ -1,17 +1,13 @@
 package fxcardview;
 
-import java.io.IOException;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.text.*;
 import javafx.scene.shape.*;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
+import javafx.stage.Modality;
 
 public class CustomerCard extends Pane {
 
@@ -40,9 +36,9 @@ public class CustomerCard extends Pane {
         setStyle("-fx-background-color:#FFF; -fx-border-radius: 10px; -fx-background-radius: 10px;");
 
         DropShadow dropShadow = new DropShadow();
-        dropShadow.setHeight(18);
-        dropShadow.setWidth(18);
-        dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
+        dropShadow.setHeight(3);
+        dropShadow.setWidth(3);
+        dropShadow.setBlurType(BlurType.TWO_PASS_BOX);
         setEffect(dropShadow);
 
         photo.setFill(javafx.scene.paint.Color.valueOf("#1f93ff00"));
@@ -105,27 +101,15 @@ public class CustomerCard extends Pane {
         label0.setFont(new Font(13.0));
 
         setOnMouseClicked(e -> {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("FXMLDocument.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-                Stage stage = new Stage();
-                stage.setTitle("New Window");
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException em) {
-                
-            }
+            // Action you want to do
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.setContentText("Sample Alert");
+            alert.showAndWait();
         });
 
         getStylesheets().add("/fxcardview/CardDesign.css");
-        getChildren().add(photo);
-        getChildren().add(name);
-        getChildren().add(mobile);
-        getChildren().add(label);
-        getChildren().add(date);
-        getChildren().add(visites);
-        getChildren().add(label0);
+        getChildren().addAll(photo,name,mobile,label,date,visites,label0);
 
     }
 }

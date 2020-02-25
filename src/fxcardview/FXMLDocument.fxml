@@ -1,45 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" stylesheets="@CardDesign.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcardview.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" stylesheets="@CardDesign.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcardview.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d47a1" height="41.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1100.0" />
-      <Text fill="WHITE" layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PARTY DETAILED VIEW">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Label alignment="CENTER_RIGHT" layoutX="22.0" layoutY="61.0" prefHeight="21.0" prefWidth="59.0" text="From :">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="fromDate" layoutX="87.0" layoutY="60.0" prefHeight="25.0" prefWidth="147.0" promptText="Select From Date" />
-      <DatePicker fx:id="toDate" layoutX="302.0" layoutY="60.0" prefHeight="25.0" prefWidth="147.0" promptText="Select To Date" />
-      <Label alignment="CENTER_RIGHT" layoutX="237.0" layoutY="61.0" prefHeight="21.0" prefWidth="59.0" text="To :">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <JFXButton layoutX="504.0" layoutY="55.0" onAction="#onSearch" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #0d47a1;" text="SEARCH" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXButton>
-      <ScrollPane layoutX="12.0" layoutY="109.0" prefHeight="529.0" prefWidth="1079.0">
+      <ScrollPane layoutX="4.0" layoutY="47.0" prefHeight="598.0" prefWidth="1093.0">
          <content>
             <GridPane fx:id="cardHolder" layoutX="12.0" layoutY="109.0">
       </GridPane>
          </content>
       </ScrollPane>
+      <Text fill="WHITE" layoutX="37.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custom Card View">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
