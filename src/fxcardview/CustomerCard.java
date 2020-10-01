@@ -6,12 +6,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 
 public class CustomerCard extends Pane {
 
-    protected final Circle photo;
+    protected final ImageView photo;
     protected final Label name;
     protected final Label mobile;
     protected final Label label;
@@ -22,7 +24,7 @@ public class CustomerCard extends Pane {
 
     public CustomerCard(int Id, String Name, String Mobile, String Date, String Vistes) {
 
-        photo = new Circle();
+        photo = new ImageView();
         name = new Label();
         mobile = new Label();
         label = new Label();
@@ -41,12 +43,14 @@ public class CustomerCard extends Pane {
         dropShadow.setBlurType(BlurType.TWO_PASS_BOX);
         setEffect(dropShadow);
 
-        photo.setFill(javafx.scene.paint.Color.valueOf("#1f93ff00"));
+        photo.setImage(new Image("https://www.irreverentgent.com/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg"));
         photo.setLayoutX(123.0);
         photo.setLayoutY(56.0);
-        photo.setRadius(45.0);
-        photo.setStroke(javafx.scene.paint.Color.valueOf("#d7d7d7"));
-        photo.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        photo.setFitHeight(100);
+        photo.setFitWidth(100);
+//        photo.setRadius(45.0);
+//        photo.setStroke(javafx.scene.paint.Color.valueOf("#d7d7d7"));
+//        photo.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
 
         name.setAlignment(javafx.geometry.Pos.CENTER);
         name.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
